@@ -10,7 +10,8 @@ using namespace std;
 
 int main()
 {
-    cout << time(0) << endl;
+    // cout << time(0) << endl;
+
     // cout << setprecision(10) << left << setfill('=');
     // cout << setw(13) << "sqrt(2): " << M_SQRT2 << endl;
     // cout << setw(13) << "sqrt(2): " << sqrt(2) << endl;
