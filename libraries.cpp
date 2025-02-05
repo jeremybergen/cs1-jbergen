@@ -10,8 +10,9 @@ using namespace std;
 
 int main()
 {
-    int num1;
-    cout << time(0) << endl;
+    cout << -10%3 << endl;
+    // int num1;
+    // cout << time(0) << endl;
 
     // cout << setprecision(10) << left << setfill('=');
     // cout << setw(13) << "sqrt(2): " << M_SQRT2 << endl;
