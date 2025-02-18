@@ -4,23 +4,49 @@
 using namespace std;
 
 void printTable(int);
+int promptSize();
 
 int main()
 {
-    int counter = 1;
-    while (counter <= 10)
-    {
-        
-        cout << counter << endl;
-        counter++;
-    }
+    // do
+    // {
+    //     //do stuff
+    // } while (true);
     
-    // int tableSize;
+    // while(true)
+    // {
+    //     //do stuff
+    // }
+    // for( ; ; )
+    // {
+    //     //do stuff
+    // }
+    // int counter = 11;
+    // // do
+    // // {
+    // //     cout << counter << endl;
+    // //     counter++;
+    // // } while(counter <= 10);
 
-    // cout << "Enter table size: ";
-    // cin >> tableSize;
+    // while (counter <= 10)
+    // {
+    //     cout << counter << endl;
+    //     counter++;
+    // }
 
-    // printTable(tableSize);
+    // cout << "after while loop: counter: " << counter << endl;
+    
+    int tableSize;
+
+    tableSize = promptSize();
+
+    if(tableSize == -1)
+    {
+        cout << "Table size error" << endl;
+        return 0;
+    }
+
+    printTable(tableSize);
 
     // string firstName;
 
@@ -54,6 +80,42 @@ int main()
     
 
     return 0;
+}
+
+int promptSize()
+{
+    // int tableSize;
+    // bool validSize = false;
+
+    // while(!validSize)
+    // {
+    //     cout << "Enter table size: ";
+    //     cin >> tableSize;
+
+    //     if(tableSize >= 1 && tableSize <= 31)
+    //     {
+    //         validSize = true;
+    //     }
+    //     else
+    //     {
+    //         cout << "Size must be between 1 and 31" << endl;
+    //     }
+        
+    // }
+
+    int tableSize;
+
+    cout << "Enter table size: ";
+
+    while(cin >> tableSize)
+    {
+        if(tableSize >= 1 && tableSize <= 31)
+        {
+            return tableSize;
+        }
+        cout << "Size must be between 1 and 31" << endl;        
+    }
+    return -1;
 }
 
 void printTable(int tableSize)
