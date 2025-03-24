@@ -8,6 +8,7 @@ using namespace std;
 
 void tests();
 
+// int main(int argc, char** argv)
 int main(int argc, char* argv[])
 {
     // float epsilon = 1e-5;
