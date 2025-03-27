@@ -77,9 +77,14 @@ bool isPalin(string str)
 {
     for(size_t i = str.length() - 1, j = 0; i >= 0 && j < str.length(); i--, j++)
     {
+        cout << "DEBUG: str.at(" << i << "): " << str.at(i) << ", str.at(" << j << "): " << str.at(j) << endl;
         if(str.at(i) != str.at(j))
         {
             return false;
+        }
+        if(j >= i)
+        {
+            break;
         }
     }
     return true;
