@@ -57,8 +57,10 @@ void insert(Node** head, int data)
         return;
     }
 
+    // while(curNode->next != nullptr && (curNode->data < data && curNode->next->data > data))
     while(curNode->next != nullptr && curNode->data < data)
     {
+        if(curNode->next->data > data) break;
         curNode = curNode->next;
     }
 
