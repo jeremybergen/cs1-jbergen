@@ -19,23 +19,75 @@ class Rectangle
     bool _valid;
     void calcArea();
     void calcPerim();
+    int* someNum = new int;
 
     public:
+    // Rectangle();
+    Rectangle(T1 = 1, T1 = 1);
+    ~Rectangle();
     bool isValid() { return _valid; }
+    void setSide1(T1 side1) { _side1 = side1; }
 
+    T1 getSide1() const { return _side1; }
+    T1 getSide2() const { return _side2; }
     void getSides();
     void changeSides();
     string printVals();
 };
 
+template <typename T1>
+Rectangle<T1> addRectangles(Rectangle<T1>*, Rectangle<T1>*);
+
 int main(int argc, char* argv[])
 {
-    Rectangle<double> rect1;
+    Rectangle<double>* rect1 = new Rectangle<double>(42, 123);
+    Rectangle<double>* rect2 = new Rectangle<double>(10, 20);
 
-    rect1.getSides();
+    // rect1.getSides();
+    Rectangle<double> rect3 = addRectangles(rect1, rect2);
 
-    cout << rect1.printVals() << endl;
+    cout << "rect1: " << rect1->printVals() << endl;
+    cout << rect3.printVals() << endl;
+
+    delete rect1;
+    delete rect2;
     return 0;
+}
+
+template <typename T1>
+Rectangle<T1> addRectangles(Rectangle<T1>* r1, Rectangle<T1>* r2)
+{
+    Rectangle<T1> newRect(r1->getSide1() + r2->getSide1(), r1->getSide2());
+    r1->setSide1(100);
+    return newRect;
+}
+
+template <typename T1>
+Rectangle<T1>::~Rectangle()
+{
+    cout << "Deleting: someNum: " << someNum << endl;
+    delete someNum;
+    cout << "Instance destroyed" << endl;
+}
+
+// template <typename T1>
+// Rectangle<T1>::Rectangle()
+// {
+//     _side1 = 2;
+//     _side2 = 2;
+//     calcArea();
+//     calcPerim();
+// }
+
+template <typename T1>
+Rectangle<T1>::Rectangle(T1 side1, T1 side2)
+{
+    cout << "someNum: " << someNum << endl;
+    _side1 = side1;
+    _side2 = side2;
+    if(_side1 <= 0 || _side2 <= 0) getSides();
+    calcArea();
+    calcPerim();
 }
 
 template <typename T1>
